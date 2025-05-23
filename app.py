@@ -63,10 +63,12 @@ import logging
 import os
 from dotenv import load_dotenv
 from models import db, User
+from flask_cors import CORS
 
 load_dotenv()  # Load DATABASE_URL from .env
 
 app = Flask(__name__)
+CORS(app,origins="*")
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
